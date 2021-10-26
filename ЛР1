@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
+
+#define POINT_NUMBER 12
+#define ARGUMENT 26
+#define FUNCTION 27
+int main()
+{
+double y,x, x1, x2, delta;
+int t;
+int N;
+printf("Choose 1 or 2: ");
+scanf("%d", &t);
+
+int len = POINT_NUMBER+ARGUMENT+FUNCTION;
+
+if (t == 1)
+{
+printf("\n X1: ");
+scanf("%lf", &x1);
+printf("\n X2: ");
+scanf("%lf", &x2);
+printf("\nSelect N: ");
+scanf("%u", &N);
+printf("\n-----------------------------------------------------------");
+printf("\n!*    N    !           X           !         F(X)        !");
+printf("\n---------------------------------------------------------\n");
+int i = 1;
+delta = (x2 - x1) / (N - 1);
+while (x1 <= x2)
+
+if(i%10-1 != 0 && i != 1)
+{
+printf("\n");
+}
+y = x1 * x1 + 7 * x1;
+printf("|%5.0d|%-20f|%-25f|\n", i, x1, y);
+
+printf("----------------------------------------------------------");
+
+if (i == N)
+{
+break;
+}
+if (i % 10 == 0)
+{
+printf("\nPress any key to continue\r");
+getch();
+printf("                            \r");
+}
+x1 = x1 + delta;
+i++;
+}
+else if(t == 2)
+{
+printf("\nFirst X1:");
+scanf("%lf", &x1);
+printf("\nSecond X2:");
+scanf("%lf", &x2);
+printf("\nChoose delta:");
+scanf("%lf", &delta);
+
+int i = 1;
+printf("\n----------------------------------------------------------");
+printf("\n!    N    !           X           !         F(X)         !");
+printf("\n----------------------------------------------------------\n");
+
+ i = 1;
+
+   for(;x1<=x2;)
+{
+
+if (i % 10 - 1 != 0 && i != 1)
+{
+printf("\n");
+}
+y = x1 * x1 + 7 * x1;
+printf("|%5.0d|%-20f|%-25f|\n", i, x1, y);
+
+printf("----------------------------------------------------------");
+
+if (i % 10 == 0)
+{
+printf("\nPress any key to continue\r");
+getch();
+printf("\r");
+}
+x1 = x1 + delta;
+i++;
+}
+}
+return 0;
